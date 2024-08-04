@@ -1,11 +1,14 @@
 package main
 
 import (
-	_ "demo/internal/packed"
+	_ "go-frame-shop/internal/packed"
+
+	_ "go-frame-shop/internal/logic"
 
 	"github.com/gogf/gf/v2/os/gctx"
 
-	"demo/internal/cmd"
+	_ "github.com/gogf/gf/contrib/drivers/mysql/v2"
+	"go-frame-shop/internal/cmd"
 )
 
 func main() {
