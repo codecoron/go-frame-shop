@@ -11,7 +11,7 @@ import (
 
 type (
 	IMiddleware interface {
-		// 返回处理中间件
+		// ResponseHandler 返回处理中间件
 		ResponseHandler(r *ghttp.Request)
 	}
 )

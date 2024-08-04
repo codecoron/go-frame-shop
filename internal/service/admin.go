@@ -13,6 +13,8 @@ import (
 type (
 	IAdmin interface {
 		Create(ctx context.Context, in model.AdminCreateInput) (out model.AdminCreateOutput, err error)
+		// GetList 查询内容列表
+		GetList(ctx context.Context, in model.AdminGetListInput) (out *model.AdminGetListOutput, err error)
 	}
 )
 

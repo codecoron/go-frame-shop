@@ -13,3 +13,14 @@ type AdminReq struct {
 type AdminRes struct {
 	AdminId int `json:"admin_id"`
 }
+
+type AdminGetListCommonReq struct {
+	g.Meta `path:"/admin/list" method:"get" tags:"管理员" summary:"管理员列表接口"`
+	CommonPaginationReq
+}
+type AdminGetListCommonRes struct {
+	List  interface{} `json:"list" description:"列表"`
+	Page  int         `json:"page" description:"分页码"`
+	Size  int         `json:"size" description:"分页数量"`
+	Total int         `json:"total" description:"数据总数"`
+}

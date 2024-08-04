@@ -25,3 +25,18 @@ func (a *cAdmin) Create(ctx context.Context, req *backend.AdminReq) (res *backen
 	}
 	return &backend.AdminRes{AdminId: out.AdminId}, nil
 }
+
+func (a *cAdmin) List(ctx context.Context, req *backend.AdminGetListCommonReq) (res *backend.AdminGetListCommonRes, err error) {
+	getListRes, err := service.Admin().GetList(ctx, model.AdminGetListInput{
+		Page: req.Page,
+		Size: req.Size,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	return &backend.AdminGetListCommonRes{List: getListRes.List,
+		Page:  getListRes.Page,
+		Size:  getListRes.Size,
+		Total: getListRes.Total}, nil
+}
