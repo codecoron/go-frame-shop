@@ -42,6 +42,20 @@ var (
 					)
 				})
 			})
+
+			s.Group("/frontend", func(group *ghttp.RouterGroup) {
+				group.Middleware(
+					ghttp.MiddlewareHandlerResponse,
+				)
+				group.Bind(
+					controller.User.Register, //用户注册
+				)
+				group.Group("/", func(group *ghttp.RouterGroup) {
+					group.Bind(
+						controller.User.UpdatePassword, //当前用户修改密码
+					)
+				})
+			})
 			s.Run()
 			return nil
 		},
