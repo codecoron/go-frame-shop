@@ -25,3 +25,14 @@ func (a *cGoods) Create(ctx context.Context, req *backend.GoodsReq) (res *backen
 	}
 	return &backend.GoodsRes{Id: out.Id}, err
 }
+
+func (a *cGoods) List(ctx context.Context, req *backend.GoodsGetListCommonReq) (res *backend.GoodsGetListCommonRes, err error) {
+	out, err := service.Goods().GetList(ctx, model.GoodsGetListInput{
+		Page: req.Page,
+		Size: req.Size,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return &backend.GoodsGetListCommonRes{List: out.List, Page: out.Page, Size: out.Size, Total: out.Total}, err
+}

@@ -24,3 +24,14 @@ type GoodsCommonAddUpdate struct {
 type GoodsRes struct {
 	Id uint `json:"id"`
 }
+
+type GoodsGetListCommonReq struct {
+	g.Meta `path:"/goods/list" method:"get" tags:"商品" summary:"商品列表接口"`
+	CommonPaginationReq
+}
+type GoodsGetListCommonRes struct {
+	List  interface{} `json:"list" description:"列表"`
+	Page  int         `json:"page" description:"分页码"`
+	Size  int         `json:"size" description:"分页数量"`
+	Total int         `json:"total" description:"数据总数"`
+}

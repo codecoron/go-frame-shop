@@ -1,5 +1,7 @@
 package model
 
+import "go-frame-shop/internal/model/entity"
+
 // GoodsCreateUpdateBase 创建/修改内容基类
 type GoodsCreateUpdateBase struct {
 	PicUrl           string
@@ -23,4 +25,21 @@ type GoodsCreateInput struct {
 // GoodsCreateOutput 创建内容返回结果
 type GoodsCreateOutput struct {
 	Id uint `json:"id"`
+}
+
+type GoodsGetListInput struct {
+	Page int // 分页号码
+	Size int // 分页数量，最大50
+}
+
+type GoodsGetListOutput struct {
+	List  []GoodsGetListOutputItem
+	Page  int
+	Size  int
+	Total int
+}
+
+// GoodsGetListOutputItem logic的model引用了entity
+type GoodsGetListOutputItem struct {
+	entity.GoodsInfo
 }

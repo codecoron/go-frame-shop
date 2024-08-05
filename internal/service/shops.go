@@ -13,6 +13,7 @@ import (
 type (
 	IGoods interface {
 		Create(ctx context.Context, in model.GoodsCreateInput) (out model.GoodsCreateOutput, err error)
+		GetList(ctx context.Context, in model.GoodsGetListInput) (out *model.GoodsGetListOutput, err error)
 	}
 )
 
