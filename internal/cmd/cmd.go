@@ -38,6 +38,7 @@ var (
 						controller.Admin.List,   // 管理员
 						controller.Admin.Update, // 更新
 						controller.Admin.Delete,
+						controller.Goods, //商品管理
 					)
 				})
 			})
