@@ -35,3 +35,19 @@ type GoodsGetListCommonRes struct {
 	Size  int         `json:"size" description:"分页数量"`
 	Total int         `json:"total" description:"数据总数"`
 }
+
+type GoodsDeleteReq struct {
+	g.Meta `path:"/goods/delete" method:"delete" tags:"商品" summary:"删除商品接口"`
+	Id     uint `v:"min:1#请选择需要删除的商品" dc:"商品id"`
+}
+type GoodsDeleteRes struct{}
+
+type GoodsUpdateReq struct {
+	g.Meta `path:"/goods/update/" method:"post" tags:"商品" summary:"修改商品接口"`
+	Id     uint `json:"id"      v:"min:1#请选择需要修改的商品" dc:"商品Id"`
+	GoodsCommonAddUpdate
+}
+
+type GoodsUpdateRes struct {
+	Id uint `json:"id"`
+}

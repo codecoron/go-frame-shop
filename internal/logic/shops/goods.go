@@ -2,6 +2,7 @@ package shops
 
 import (
 	"context"
+	"github.com/gogf/gf/v2/frame/g"
 	"go-frame-shop/internal/dao"
 	"go-frame-shop/internal/model"
 	"go-frame-shop/internal/model/entity"
@@ -54,4 +55,20 @@ func (s *sGoods) GetList(ctx context.Context, in model.GoodsGetListInput) (out *
 		return out, err
 	}
 	return
+}
+
+// Delete 删除
+func (s *sGoods) Delete(ctx context.Context, id uint) (err error) {
+	_, err = dao.GoodsInfo.Ctx(ctx).Where(
+		g.Map{dao.GoodsInfo.Columns().Id: id}).Delete()
+	if err != nil {
+		return err
+	}
+	return
+}
+
+func (s *sGoods) Update(ctx context.Context, in model.GoodsUpdateInput) error {
+	_, err := dao.GoodsInfo.Ctx(ctx).Data(in).FieldsEx(dao.
+		GoodsInfo.Columns().Id).Where(dao.GoodsInfo.Columns().Id, in.Id).Update()
+	return err
 }

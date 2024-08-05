@@ -14,6 +14,9 @@ type (
 	IGoods interface {
 		Create(ctx context.Context, in model.GoodsCreateInput) (out model.GoodsCreateOutput, err error)
 		GetList(ctx context.Context, in model.GoodsGetListInput) (out *model.GoodsGetListOutput, err error)
+		// Delete 删除
+		Delete(ctx context.Context, id uint) (err error)
+		Update(ctx context.Context, in model.GoodsUpdateInput) error
 	}
 )
 

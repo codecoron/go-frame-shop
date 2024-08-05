@@ -36,3 +36,21 @@ func (a *cGoods) List(ctx context.Context, req *backend.GoodsGetListCommonReq) (
 	}
 	return &backend.GoodsGetListCommonRes{List: out.List, Page: out.Page, Size: out.Size, Total: out.Total}, err
 }
+
+func (a *cGoods) Delete(ctx context.Context, req *backend.GoodsDeleteReq) (res *backend.GoodsDeleteRes, err error) {
+
+	err = service.Goods().Delete(ctx, req.Id)
+
+	return &backend.GoodsDeleteRes{}, err
+}
+
+func (a *cGoods) Update(ctx context.Context, req *backend.GoodsUpdateReq) (res *backend.GoodsUpdateRes, err error) {
+	data := model.GoodsUpdateInput{}
+	err = gconv.Scan(req, &data)
+	if err != nil {
+		return nil, err
+	}
+	err = service.Goods().Update(ctx, data)
+
+	return &backend.GoodsUpdateRes{Id: req.Id}, err
+}

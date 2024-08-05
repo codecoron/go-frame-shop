@@ -43,3 +43,8 @@ type GoodsGetListOutput struct {
 type GoodsGetListOutputItem struct {
 	entity.GoodsInfo
 }
+
+type GoodsUpdateInput struct {
+	GoodsCreateUpdateBase
+	Id uint
+}
