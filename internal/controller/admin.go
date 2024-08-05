@@ -40,3 +40,16 @@ func (a *cAdmin) List(ctx context.Context, req *backend.AdminGetListCommonReq) (
 		Size:  getListRes.Size,
 		Total: getListRes.Total}, nil
 }
+
+func (a *cAdmin) Update(ctx context.Context, req *backend.AdminUpdateReq) (res *backend.AdminUpdateRes, err error) {
+	err = service.Admin().Update(ctx, model.AdminUpdateInput{
+		Id: req.Id,
+		AdminCreateUpdateBase: model.AdminCreateUpdateBase{
+			Name:     req.Name,
+			Password: req.Password,
+			RoleIds:  req.RoleIds,
+			IsAdmin:  req.IsAdmin,
+		},
+	})
+	return &backend.AdminUpdateRes{Id: req.Id}, nil
+}

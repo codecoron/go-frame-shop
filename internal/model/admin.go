@@ -43,3 +43,9 @@ type AdminGetListOutputItem struct {
 	CreatedAt *gtime.Time `json:"created_at"` // 创建时间
 	UpdatedAt *gtime.Time `json:"updated_at"` // 修改时间
 }
+
+// AdminUpdateInput 修改内容
+type AdminUpdateInput struct {
+	AdminCreateUpdateBase
+	Id uint
+}

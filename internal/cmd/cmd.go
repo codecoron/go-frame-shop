@@ -34,7 +34,8 @@ var (
 				)
 				group.Group("/", func(group *ghttp.RouterGroup) {
 					group.Bind(
-						controller.Admin.List, // 管理员
+						controller.Admin.List,   // 管理员
+						controller.Admin.Update, // 更新
 					)
 				})
 			})

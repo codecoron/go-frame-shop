@@ -2,7 +2,7 @@ package admin
 
 import (
 	"context"
-	"fmt"
+	"github.com/gogf/gf/v2/database/gdb"
 	"github.com/gogf/gf/v2/encoding/ghtml"
 	"github.com/gogf/gf/v2/util/grand"
 	"go-frame-shop/internal/dao"
@@ -49,7 +49,7 @@ func (s *sAdmin) GetList(ctx context.Context, in model.AdminGetListInput) (out *
 		Size: in.Size,
 	}
 
-	// 分配查询
+	// 分页查询
 	listModel := m.Page(in.Page, in.Size)
 
 	// 执行查询
@@ -58,7 +58,6 @@ func (s *sAdmin) GetList(ctx context.Context, in model.AdminGetListInput) (out *
 	if err := listModel.Scan(&list); err != nil {
 		return out, err
 	}
-	fmt.Println("list:", list)
 	// 没有数据
 	if len(list) == 0 {
 		return out, nil
@@ -71,6 +70,23 @@ func (s *sAdmin) GetList(ctx context.Context, in model.AdminGetListInput) (out *
 	if err := listModel.Scan(&out.List); err != nil {
 		return out, err
 	}
-	fmt.Println("list:", out.List)
 	return
+}
+
+func (s *sAdmin) Update(ctx context.Context, in model.AdminUpdateInput) error {
+	return dao.AdminInfo.Transaction(ctx, func(ctx context.Context, tx gdb.TX) error {
+		if err := ghtml.SpecialCharsMapOrStruct(in); err != nil {
+			return err
+		}
+		// 判断是否修改了密码
+		if in.Password != "" {
+			UserSalt := grand.S(10)
+			in.Password = utility.EncryptPassword(in.Password, UserSalt)
+			in.UserSalt = UserSalt
+		}
+		// 更新操作
+		_, err := dao.AdminInfo.Ctx(ctx).Data(in).FieldsEx(dao.AdminInfo.Columns().Id).
+			Where(dao.AdminInfo.Columns().Id, in.Id).Update()
+		return err
+	})
 }
