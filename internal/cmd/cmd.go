@@ -6,7 +6,6 @@ import (
 	"github.com/gogf/gf/v2/net/ghttp"
 	"github.com/gogf/gf/v2/os/gcmd"
 	"go-frame-shop/internal/controller"
-	"go-frame-shop/internal/service"
 	//"go-frame-shop/internal/controller/hello"
 )
 
@@ -27,7 +26,9 @@ var (
 				group.Middleware(
 					//service.Middleware().CORS,
 					//service.Middleware().Ctx,
-					service.Middleware().ResponseHandler,
+					//service.Middleware().ResponseHandler,
+					//s.Use(ghttp.MiddlewareHandlerResponse),
+					ghttp.MiddlewareHandlerResponse,
 				)
 				group.Bind(
 					controller.Admin.Create, // 管理员
@@ -36,6 +37,7 @@ var (
 					group.Bind(
 						controller.Admin.List,   // 管理员
 						controller.Admin.Update, // 更新
+						controller.Admin.Delete,
 					)
 				})
 			})

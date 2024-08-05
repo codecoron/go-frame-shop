@@ -4,6 +4,7 @@ import (
 	"context"
 	"github.com/gogf/gf/v2/database/gdb"
 	"github.com/gogf/gf/v2/encoding/ghtml"
+	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/util/grand"
 	"go-frame-shop/internal/dao"
 	"go-frame-shop/internal/model"
@@ -87,6 +88,15 @@ func (s *sAdmin) Update(ctx context.Context, in model.AdminUpdateInput) error {
 		// 更新操作
 		_, err := dao.AdminInfo.Ctx(ctx).Data(in).FieldsEx(dao.AdminInfo.Columns().Id).
 			Where(dao.AdminInfo.Columns().Id, in.Id).Update()
+		return err
+	})
+}
+
+func (s *sAdmin) Delete(ctx context.Context, id uint) error {
+	return dao.AdminInfo.Transaction(ctx, func(ctx context.Context, tx gdb.TX) error {
+		_, err := dao.AdminInfo.Ctx(ctx).Where(g.Map{
+			dao.AdminInfo.Columns().Id: id,
+		}).Delete()
 		return err
 	})
 }

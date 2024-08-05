@@ -53,3 +53,9 @@ func (a *cAdmin) Update(ctx context.Context, req *backend.AdminUpdateReq) (res *
 	})
 	return &backend.AdminUpdateRes{Id: req.Id}, nil
 }
+
+func (a *cAdmin) Delete(ctx context.Context, req *backend.
+	AdminDeleteReq) (res *backend.AdminDeleteRes, err error) {
+	err = service.Admin().Delete(ctx, req.Id)
+	return
+}

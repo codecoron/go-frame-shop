@@ -16,6 +16,7 @@ type (
 		// GetList 查询内容列表
 		GetList(ctx context.Context, in model.AdminGetListInput) (out *model.AdminGetListOutput, err error)
 		Update(ctx context.Context, in model.AdminUpdateInput) error
+		Delete(ctx context.Context, id uint) error
 	}
 )
 

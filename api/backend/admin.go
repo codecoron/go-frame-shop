@@ -36,3 +36,11 @@ type AdminUpdateReq struct {
 type AdminUpdateRes struct {
 	Id uint `json:"id"`
 }
+
+type AdminDeleteReq struct {
+	g.Meta `path:"/admin/delete" method:"delete" tags:"管理员" summary:"删除管理员接口"`
+	Id     uint `v:"min:1#请选择需要删除的管理员" dc:"管理员id"`
+}
+
+type AdminDeleteRes struct {
+}
