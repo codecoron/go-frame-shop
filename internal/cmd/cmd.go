@@ -53,6 +53,7 @@ var (
 				group.Group("/", func(group *ghttp.RouterGroup) {
 					group.Bind(
 						controller.User.UpdatePassword, //当前用户修改密码
+						controller.Order.Add,
 					)
 				})
 			})
