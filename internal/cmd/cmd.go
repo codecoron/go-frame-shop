@@ -41,6 +41,7 @@ var (
 						controller.Goods, //商品管理
 						controller.Order.List,
 						controller.Order.Detail,
+						controller.GoodsOptions, //商品规格管理
 					)
 				})
 			})
