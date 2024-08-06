@@ -39,6 +39,8 @@ var (
 						controller.Admin.Update, // 更新
 						controller.Admin.Delete,
 						controller.Goods, //商品管理
+						controller.Order.List,
+						controller.Order.Detail,
 					)
 				})
 			})
