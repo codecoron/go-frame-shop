@@ -56,6 +56,8 @@ var (
 					group.Bind(
 						controller.User.UpdatePassword, //当前用户修改密码
 						controller.Order.Add,
+						controller.OrderGoodsComments.Add,
+						controller.OrderGoodsComments.Delete,
 					)
 				})
 			})
