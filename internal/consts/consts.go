@@ -1,6 +1,13 @@
 package consts
 
 var (
+
+	//for admin
+	CtxAdminId      = "CtxAdminId"
+	CtxAdminName    = "CtxAdminName"
+	CtxAdminIsAdmin = "CtxAdminIsAdmin"
+	CtxAdminRoleIds = "CtxAdminRoleIds"
+
 	//for user
 	CtxUserId     = "CtxUserId"
 	CtxUserName   = "CtxUserName"
@@ -13,4 +20,14 @@ var (
 	CodeMissingParameterMsg = "请检查是否缺少参数"
 	ErrLoginFaulMsg         = "登录失败，账号或密码错误"
 	ErrSecretAnswerMsg      = "密保问题不正确"
+
+	//for 登录相关
+	GTokenAdminPrefix         = "Admin:" //gtoken登录 管理后台 前缀区分
+	GTokenFrontendPrefix      = "User:"  //gtoken登录 前台用户 前缀区分
+	TokenType                 = "Bearer"
+	CacheModeRedis       int8 = 2
+	BackendServerName         = "开源电商系统"
+	MultiLogin                = true
+	FrontendMultiLogin        = true
+	GTokenExpireIn            = 10 * 24 * 60 * 60
 )

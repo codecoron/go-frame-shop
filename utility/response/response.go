@@ -57,3 +57,9 @@ func dataReturn(r *ghttp.Request, code int, req ...interface{}) *JsonRes {
 	r.SetParam("apiReturnRes", response)
 	return response
 }
+
+// Auth 认证失败
+func Auth(r *ghttp.Request) {
+	res := dataReturn(r, 999, "请登录")
+	r.Response.WriteJsonExit(res)
+}

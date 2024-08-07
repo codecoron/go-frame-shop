@@ -1,6 +1,7 @@
 package main
 
 import (
+	_ "github.com/gogf/gf/contrib/nosql/redis/v2"
 	_ "go-frame-shop/internal/packed"
 
 	_ "go-frame-shop/internal/logic"

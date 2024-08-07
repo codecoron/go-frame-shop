@@ -6,7 +6,6 @@ import (
 	"github.com/gogf/gf/v2/net/ghttp"
 	"github.com/gogf/gf/v2/os/gcmd"
 	"go-frame-shop/internal/controller"
-	//"go-frame-shop/internal/controller/hello"
 )
 
 var (
@@ -22,18 +21,28 @@ var (
 			//		hello.NewV1(),
 			//	)
 			//})
+			// 启动管理后台gtoken
+			gfAdminToken, err := StartBackendGToken()
+			if err != nil {
+				return err
+			}
+
 			s.Group("/backend", func(group *ghttp.RouterGroup) {
 				group.Middleware(
 					//service.Middleware().CORS,
 					//service.Middleware().Ctx,
 					//service.Middleware().ResponseHandler,
-					//s.Use(ghttp.MiddlewareHandlerResponse),
 					ghttp.MiddlewareHandlerResponse,
 				)
+				// 不需要登录的路由组绑定
 				group.Bind(
 					controller.Admin.Create, // 管理员
 				)
 				group.Group("/", func(group *ghttp.RouterGroup) {
+					err := gfAdminToken.Middleware(ctx, group)
+					if err != nil {
+						panic(err)
+					}
 					group.Bind(
 						controller.Admin.List,   // 管理员
 						controller.Admin.Update, // 更新
