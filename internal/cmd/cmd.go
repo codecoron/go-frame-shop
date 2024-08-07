@@ -6,6 +6,7 @@ import (
 	"github.com/gogf/gf/v2/net/ghttp"
 	"github.com/gogf/gf/v2/os/gcmd"
 	"go-frame-shop/internal/controller"
+	"go-frame-shop/internal/controller/frontend"
 )
 
 var (
@@ -77,6 +78,7 @@ var (
 						controller.Order.Add,
 						controller.OrderGoodsComments.Add,
 						controller.OrderGoodsComments.Delete,
+						frontend.Article,
 					)
 				})
 			})

@@ -30,4 +30,8 @@ var (
 	MultiLogin                = true
 	FrontendMultiLogin        = true
 	GTokenExpireIn            = 10 * 24 * 60 * 60
+
+	//文章相关
+	ArticleIsAdmin = 1 //管理员发布
+	ArticleIsUser  = 2 //用户发布
 )
