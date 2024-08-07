@@ -20,6 +20,7 @@ var (
 	CodeMissingParameterMsg = "请检查是否缺少参数"
 	ErrLoginFaulMsg         = "登录失败，账号或密码错误"
 	ErrSecretAnswerMsg      = "密保问题不正确"
+	ResourcePermissionFail  = "没有权限操作"
 
 	//for 登录相关
 	GTokenAdminPrefix         = "Admin:" //gtoken登录 管理后台 前缀区分
