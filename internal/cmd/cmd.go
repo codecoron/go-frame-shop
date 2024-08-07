@@ -55,6 +55,11 @@ var (
 				})
 			})
 
+			frontendToken, err := StartFrontendGToken()
+			if err != nil {
+				return err
+			}
+
 			s.Group("/frontend", func(group *ghttp.RouterGroup) {
 				group.Middleware(
 					ghttp.MiddlewareHandlerResponse,
@@ -63,6 +68,10 @@ var (
 					controller.User.Register, //用户注册
 				)
 				group.Group("/", func(group *ghttp.RouterGroup) {
+					err := frontendToken.Middleware(ctx, group)
+					if err != nil {
+						panic(err)
+					}
 					group.Bind(
 						controller.User.UpdatePassword, //当前用户修改密码
 						controller.Order.Add,
