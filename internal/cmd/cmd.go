@@ -82,6 +82,8 @@ var (
 						controller.Cart,
 						controller.Collection,
 						controller.Comment, //评论相关
+
+						frontend.Refund, // 退货相关
 					)
 				})
 			})

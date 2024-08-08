@@ -39,4 +39,9 @@ var (
 	//收藏相关
 	CollectionTypeGoods   uint8 = 1
 	CollectionTypeArticle uint8 = 2
+
+	//售后相关
+	RefundStatusWait   = 1
+	RefundStatusAgree  = 2
+	RefundStatusRejuct = 3
 )

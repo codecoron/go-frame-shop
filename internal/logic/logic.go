@@ -14,6 +14,7 @@ import (
 	_ "go-frame-shop/internal/logic/middleware"
 	_ "go-frame-shop/internal/logic/order"
 	_ "go-frame-shop/internal/logic/order_goods_comments"
+	_ "go-frame-shop/internal/logic/refund"
 	_ "go-frame-shop/internal/logic/shops"
 	_ "go-frame-shop/internal/logic/user"
 )

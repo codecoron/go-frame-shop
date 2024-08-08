@@ -17,3 +17,9 @@ func GetOrderNum() (number string) {
 	number = gconv.String(time.Now().UnixNano()) + gconv.String(rand.Intn(1000))
 	return
 }
+
+func GetRefundNum() (number string) {
+	rand.Seed(time.Now().UnixNano())
+	number = "refund" + gconv.String(time.Now().UnixNano()) + gconv.String(rand.Intn(1000))
+	return
+}
