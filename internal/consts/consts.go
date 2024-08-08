@@ -35,4 +35,8 @@ var (
 	//文章相关
 	ArticleIsAdmin = 1 //管理员发布
 	ArticleIsUser  = 2 //用户发布
+
+	//收藏相关
+	CollectionTypeGoods   uint8 = 1
+	CollectionTypeArticle uint8 = 2
 )

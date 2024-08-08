@@ -80,6 +80,7 @@ var (
 						controller.OrderGoodsComments.Delete,
 						frontend.Article,
 						controller.Cart,
+						controller.Collection,
 					)
 				})
 			})
