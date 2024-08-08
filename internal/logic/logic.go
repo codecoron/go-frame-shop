@@ -8,6 +8,7 @@ import (
 	_ "go-frame-shop/internal/logic/admin"
 	_ "go-frame-shop/internal/logic/article"
 	_ "go-frame-shop/internal/logic/cart"
+	_ "go-frame-shop/internal/logic/category"
 	_ "go-frame-shop/internal/logic/collection"
 	_ "go-frame-shop/internal/logic/comment"
 	_ "go-frame-shop/internal/logic/goods_options"
