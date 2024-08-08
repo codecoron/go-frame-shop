@@ -79,6 +79,7 @@ var (
 						controller.OrderGoodsComments.Add,
 						controller.OrderGoodsComments.Delete,
 						frontend.Article,
+						controller.Cart,
 					)
 				})
 			})

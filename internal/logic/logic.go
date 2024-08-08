@@ -7,6 +7,7 @@ package logic
 import (
 	_ "go-frame-shop/internal/logic/admin"
 	_ "go-frame-shop/internal/logic/article"
+	_ "go-frame-shop/internal/logic/cart"
 	_ "go-frame-shop/internal/logic/goods_options"
 	_ "go-frame-shop/internal/logic/middleware"
 	_ "go-frame-shop/internal/logic/order"

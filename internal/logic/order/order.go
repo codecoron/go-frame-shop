@@ -55,7 +55,7 @@ func (s *sOrder) Add(ctx context.Context, in model.OrderAddInput) (out *model.Or
 				return err2
 			}
 			// 商品规格减少库存
-			_, err3 := dao.GoodsInfo.Ctx(ctx).WherePri(info.GoodsId).Decrement(dao.GoodsInfo.Columns().Stock, info.Count)
+			_, err3 := dao.GoodsOptionsInfo.Ctx(ctx).WherePri(info.GoodsOptionsId).Decrement(dao.GoodsOptionsInfo.Columns().Stock, info.Count)
 			if err3 != nil {
 				return err3
 			}
