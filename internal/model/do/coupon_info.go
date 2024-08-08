@@ -15,7 +15,7 @@ type CouponInfo struct {
 	Id         interface{} //
 	Name       interface{} //
 	Price      interface{} // 优惠前面值 单位分
-	GoodsIds   interface{} // 关联使用的goods_ids  逗号分隔
+	GoodsId    interface{} // goods_id
 	CategoryId interface{} // 关联使用的分类id
 	CreatedAt  *gtime.Time //
 	UpdatedAt  *gtime.Time //

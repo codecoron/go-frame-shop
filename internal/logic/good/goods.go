@@ -1,4 +1,4 @@
-package shops
+package good
 
 import (
 	"context"

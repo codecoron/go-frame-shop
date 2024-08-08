@@ -23,7 +23,7 @@ type CouponInfoColumns struct {
 	Id         string //
 	Name       string //
 	Price      string // 优惠前面值 单位分
-	GoodsIds   string // 关联使用的goods_ids  逗号分隔
+	GoodsId    string // goods_id
 	CategoryId string // 关联使用的分类id
 	CreatedAt  string //
 	UpdatedAt  string //
@@ -35,7 +35,7 @@ var couponInfoColumns = CouponInfoColumns{
 	Id:         "id",
 	Name:       "name",
 	Price:      "price",
-	GoodsIds:   "goods_ids",
+	GoodsId:    "goods_id",
 	CategoryId: "category_id",
 	CreatedAt:  "created_at",
 	UpdatedAt:  "updated_at",

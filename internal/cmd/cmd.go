@@ -53,6 +53,7 @@ var (
 						controller.Order.Detail,
 						controller.GoodsOptions, //商品规格管理
 						controller.Category,     //商品分类
+						controller.Coupon,       // 优惠卷
 					)
 				})
 			})

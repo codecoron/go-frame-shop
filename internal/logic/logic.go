@@ -11,11 +11,12 @@ import (
 	_ "go-frame-shop/internal/logic/category"
 	_ "go-frame-shop/internal/logic/collection"
 	_ "go-frame-shop/internal/logic/comment"
+	_ "go-frame-shop/internal/logic/coupon"
+	_ "go-frame-shop/internal/logic/good"
 	_ "go-frame-shop/internal/logic/goods_options"
 	_ "go-frame-shop/internal/logic/middleware"
 	_ "go-frame-shop/internal/logic/order"
 	_ "go-frame-shop/internal/logic/order_goods_comments"
 	_ "go-frame-shop/internal/logic/refund"
-	_ "go-frame-shop/internal/logic/shops"
 	_ "go-frame-shop/internal/logic/user"
 )
