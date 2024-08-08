@@ -81,6 +81,7 @@ var (
 						frontend.Article,
 						controller.Cart,
 						controller.Collection,
+						controller.Comment, //评论相关
 					)
 				})
 			})

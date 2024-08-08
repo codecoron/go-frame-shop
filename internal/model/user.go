@@ -1,6 +1,7 @@
 package model
 
 import (
+	"github.com/gogf/gf/v2/frame/g"
 	"go-frame-shop/internal/model/do"
 	"go-frame-shop/internal/model/entity"
 )
@@ -66,4 +67,14 @@ type OrderDetailOutput struct {
 	//entity.OrderInfo
 	do.OrderInfo
 	GoodsInfo []*do.OrderGoodsInfo `orm:"with:order_id=id"`
+}
+
+type UserInfoBase struct {
+	g.Meta `orm:"table:user_info"`
+	Id     uint   `json:"id"`
+	Name   string `json:"name"`
+	Avatar string `json:"avatar"`
+	Sex    uint8  `json:"sex"`
+	Sign   string `json:"sign"`
+	Status uint8  `json:"status"`
 }
