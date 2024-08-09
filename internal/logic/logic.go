@@ -20,5 +20,6 @@ import (
 	_ "go-frame-shop/internal/logic/permission"
 	_ "go-frame-shop/internal/logic/refund"
 	_ "go-frame-shop/internal/logic/role"
+	_ "go-frame-shop/internal/logic/rotation"
 	_ "go-frame-shop/internal/logic/user"
 )

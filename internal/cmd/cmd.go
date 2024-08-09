@@ -56,6 +56,7 @@ var (
 						controller.Coupon,       // 优惠卷
 						controller.Role,         // 角色管理
 						controller.Permission,   // 权限
+						controller.Rotation,     // 轮播图
 					)
 				})
 			})
