@@ -55,6 +55,7 @@ var (
 						controller.Category,     //商品分类
 						controller.Coupon,       // 优惠卷
 						controller.Role,         // 角色管理
+						controller.Permission,   // 权限
 					)
 				})
 			})
